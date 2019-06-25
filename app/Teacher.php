@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent;
+use App\Notifications\TeacherResetPasswordNotification;
 class Teacher extends Authenticatable
 {
     //
@@ -24,6 +25,8 @@ class Teacher extends Authenticatable
     {
         return $this->belongsToMany('App\Division','division_teacher');
     }
-
-    
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new TeacherResetPasswordNotification($token));
+    }  
 }

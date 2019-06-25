@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name',100);
             $table->integer('roll_no');
             $table->integer('division');
+            $table->unique(array('roll_no','division'));
             $table->string('phone_no',20);
             $table->string('email',100)->unique();
             $table->timestamp('email_verified_at')->nullable();

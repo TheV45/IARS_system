@@ -78,18 +78,18 @@ class RegisterController extends Controller
                 'phone_no' =>$request['phone_no'],
                 'emp_id' =>$request['emp_id'],
             ]);
-            $checked = $request->has('class_2') ? true: false;
-            if($checked)
-            {     
-                $teacher_div = Teacher::where('email', $request['email'])->first();
-                $teacher_div->divisions()->sync(array($request['class_1'],$request['class_2']));
-            }
-            else
-            {
-                $teacher_div = Teacher::where('email', $request['email'])->first();
-                $teacher_div->divisions()->sync(array($request['class_1']));
-            }
-
+            // $checked = $request->has('class_2') ? true: false;
+            // if($checked)
+            // {     
+            //     $teacher_div = Teacher::where('email', $request['email'])->first();
+            //     $teacher_div->divisions()->attach($request['class_1'],['subject_id' =>$request['sub_1']]);
+            //     $teacher_div->divisions()->attach($request['class_2'],['subject_id' =>$request['sub_2']]);
+            // }
+            // else
+            // {
+            //     $teacher_div = Teacher::where('email', $request['email'])->first();
+            //     $teacher_div->divisions()->attach($request['class_1'],['subject_id' =>$request['sub_1']]);
+            // }
         return redirect()->intended('login/teacher');
         }
         else{
@@ -100,11 +100,11 @@ class RegisterController extends Controller
     {
             return Validator::make($data, [
                 'name' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users','regex:/(.*)ves\.ac\.in$/',],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
                 'roll_no' => ['required', 'integer' ],
                 'phone_no' => ['required', 'string'],
-                'division' => ['required', 'string'],
+                'division' => ['required', 'string','unique:users,division,NULL,id,roll_no,'.$data['roll_no'],],
         ]);
     }
     protected function validateTeacher(array $data)
@@ -114,8 +114,8 @@ class RegisterController extends Controller
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
                 'phone_no' => ['required','string'],
-                'class_1' => ['required', 'string'],
-                'class_2' => ['string'],
+                // 'class_1' => ['required', 'string'],
+                // 'class_2' => ['string'],
         ]);
     }
     /**
@@ -144,7 +144,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'phone_no'=>$data['phone_no'],
             'emp_id'=>$data['emp_id'],
-
         ]);
     }
 }

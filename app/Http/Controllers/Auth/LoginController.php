@@ -73,7 +73,7 @@ class LoginController extends Controller
         if (Auth::guard('teacher')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) 
         {
 
-            return redirect()->intended('/teacher');
+            return redirect()->intended('/teacher')->with('success','You are successfully logged in!');
         }
         return back()->withInput($request->only('email', 'remember'));
     }

@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class DivisionTeacher extends Migration
 {
     /**
@@ -16,11 +14,11 @@ class DivisionTeacher extends Migration
         Schema::create('division_teacher', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('division_id');
+            $table->integer('subject_id')->nullable();
             $table->integer('teacher_id');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

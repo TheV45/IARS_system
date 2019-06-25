@@ -10,4 +10,7 @@ class PagesController extends Controller
         $title='Internal Assessment Record System';
         return view('pages.index',compact('title'));
     }
+    public function index1(){
+        return view('pages.index1');
+    }
 }
