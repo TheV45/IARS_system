@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col-lg-12">
             
-            <h1 style="color:blue"><i class="fas fa-tachometer-alt" style="color: blue;"></i> <strong> Your Dashboard</strong></h1>
+            <h1 style="color:blue"><i class="fas fa-tachometer-alt" style="color: blue;"></i> <strong>Teacher's Dashboard</strong></h1>
             
             <hr  style="border: solid #FFC312">
         </div>
@@ -70,7 +70,7 @@
                                     <div class="social_icon">
                                     <span><i class="far fa-check-circle"></i></span>
                                     </div>
-                                    <h4>Put Marks</h4>
+                                    <h4>Enter Marks</h4>
                                 </div>
                         </div>
                         <div class="card-footer">

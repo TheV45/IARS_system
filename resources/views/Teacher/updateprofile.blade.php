@@ -74,7 +74,7 @@
                 <div class="card-body">
                         <div class="row ">
                                 <div class="col-md-12 text-md-left">
-                                    <h4 >Profile</h4>
+                                    <h4 >Update Profile</h4>
                                    <hr style="border:1px solid #FFC312"> 
                                 </div>
                             </div>
@@ -170,6 +170,7 @@
                             <option value="36">D20</option>
                           </select>
                           <p>&nbsp;</p>
+                          <p>&nbsp;</p>
                           <span class="input-group-text"><i class="fas fa-book-open"></i></span>
                           <select id="sub_1" type="text" class="form-control" name="sub_1" required>
                                 <option value = 1 >CMPN: AM4</option>
@@ -187,6 +188,7 @@
                         </select>
                         </div>
                     </div>
+                    <br>
                     <div class="form-group input-group" id = "class2" style = "display:none;" >
                             <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-chalkboard"></i></span> 
@@ -230,6 +232,7 @@
                                     <option value="36">D20</option>
                             </select>
                             <p>&nbsp;</p>
+                            <p>&nbsp;</p>
                             <span class="input-group-text"><i class="fas fa-book-open"></i></span>
                             <select id="sub_2" type="text" class="form-control" name="sub_2" required disabled >
                                     <option value = 1 >CMPN: AM4</option>
@@ -253,7 +256,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                    <a href="/teacher/updateprofile"> <button type="submit" class="btn float-left update_btn">
-                                            <i class="fas fa-edit"></i>Update Profile
+                                            <i class="fas fa-edit"></i>Update
                                         </button></a>
                             </div>
                         </div>
@@ -262,10 +265,10 @@
     </div>
 </div>
 @endsection
-@if ($errors->any())    
+{{-- @if ($errors->any())    
     <ul>
     @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
     @endforeach
     </ul>
-@endif
+@endif --}}

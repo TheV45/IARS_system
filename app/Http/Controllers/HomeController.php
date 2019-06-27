@@ -56,6 +56,6 @@ class HomeController extends Controller
             }
         }
       
-        return back();
+        return back()->with('success','Choice Updated!');
     }
 }

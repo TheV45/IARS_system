@@ -14,7 +14,7 @@
             }
             
             .card{
-            height: 675px;
+            height: 500px;
             margin-top: 50px;
             margin-bottom: auto;
             width: 470px;
@@ -72,6 +72,7 @@
             color: black;
             background-color: #FFC312;
             width: 150px;
+            margin-left: 32%;
             }
             
             .register_btn:hover{
@@ -119,8 +120,8 @@
 <div class="container">
     <div class="d-flex justify-content-center h-100">
         <div class="card">
-            <h4 class="card-title mt-3 text-center" style="color: white">Create Account</h4>
-            <p class="text-center">Get started with your free account</p>          
+            <h3 class="card-title mt-3 text-center" style="color: white">Teacher's Registration</h3>
+                     
         <div class="card-body">
         <form method="POST" action='/register/teacher' >
             @csrf
@@ -190,10 +191,10 @@
         </div>
     </div> 
 @endsection
-@if ($errors->any())    
+{{-- @if ($errors->any())    
     <ul>
     @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
     @endforeach
     </ul>
-@endif
+@endif --}}

@@ -63,6 +63,6 @@ class Handler extends ExceptionHandler
                 return redirect()->guest('/login/teacher');
             }
             
-            return redirect()->guest(route('login'));
+        return redirect()->guest(route('login'));
         }
 }

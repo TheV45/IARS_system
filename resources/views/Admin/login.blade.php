@@ -18,6 +18,7 @@
             margin-top: 50px;
             margin-bottom: auto;
             width: 400px;
+            text-align: center;
             background-color:rgba(0,0,0,0.7) !important;
             }
             

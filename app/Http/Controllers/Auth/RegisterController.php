@@ -67,6 +67,7 @@ class RegisterController extends Controller
     }
     protected function createTeacher(Request $request)
     {
+        
         $masterList = teachersData::where('email',$request->input('email'))->where('emp_id',$request->input('emp_id'))->first();
         if($masterList!=null)
         {
@@ -90,10 +91,10 @@ class RegisterController extends Controller
             //     $teacher_div = Teacher::where('email', $request['email'])->first();
             //     $teacher_div->divisions()->attach($request['class_1'],['subject_id' =>$request['sub_1']]);
             // }
-        return redirect()->intended('login/teacher');
+        return redirect()->intended('login/teacher')->with('success','You are Registered Successfully!');
         }
         else{
-            return redirect('register/teacher');
+            return redirect('register/teacher')->with('error','Invalid Registration. Please visit the General Instructions section');
         }
     }
     protected function validator(array $data)
@@ -105,6 +106,12 @@ class RegisterController extends Controller
                 'roll_no' => ['required', 'integer' ],
                 'phone_no' => ['required', 'string'],
                 'division' => ['required', 'string','unique:users,division,NULL,id,roll_no,'.$data['roll_no'],],
+                'parentname1' => ['required', 'string', 'max:255'],
+                'parentemail1' => ['required', 'string', 'email', 'max:255', ],
+                'parentphone_no1' => ['required', 'string'],
+                'parentname2' => [ 'string', 'max:255'],
+                'parentemail2' => [ 'string', 'email', 'max:255', ],
+                'parentphone_no2' => ['string',],
         ]);
     }
     protected function validateTeacher(array $data)
@@ -133,6 +140,12 @@ class RegisterController extends Controller
             'roll_no' => $data['roll_no'],
             'phone_no' => $data['phone_no'],
             'division' => $data['division'],
+            'parentname1'=>$data['parentname1'],
+            'parentemail1'=>$data['parentemail1'],
+            'parentphone_no1'=>$data['parentphone_no1'],
+            'parentname2'=>$data['parentname2'],
+            'parentemail2'=>$data['parentemail2'],
+            'parentphone_no2'=>$data['parentphone_no2'],
         ]);
         //return redirect()->intended('/home');
     }

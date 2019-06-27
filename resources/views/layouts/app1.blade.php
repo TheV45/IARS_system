@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <style>
-        body{
-            background-image: url("http://ves.ac.in/vesit/wp-content/uploads/sites/3/2015/11/IMG_93121-optimized.jpg");
-            background-repeat: no-repeat;
-            background-size: cover; 
-            font-size: 0.9rem;
-        }
+
 #mySidenav a {
 
   position: absolute;
@@ -77,13 +72,18 @@ span{
 
 </head>
       @include('inc.pracnav')
+      @include('inc.messages')
       <div id="mySidenav" class="sidenav">
-                <a href="#" id="dashboard">Dashboard<span><i class="fas fa-tachometer-alt float-right" style="margin-top:5px"></i></span></a>
+              @if(Auth::guard('teacher')->check())
+                <a href="/teacher" id="dashboard">Dashboard<span><i class="fas fa-tachometer-alt float-right" style="margin-top:5px"></i></span></a>
+              @elseif(Auth::guard()->check())
+              <a href="/home" id="dashboard">Dashboard<span><i class="fas fa-tachometer-alt float-right" style="margin-top:5px"></i></span></a>
+              @endif
                 <a href="#" id="about">About Us<span><i class="fas fa-address-card float-right"  style="margin-top:5px"></i></span></a>
                 <a href="#" id="contact">Contact <span><i class="fas fa-phone float-right"  style="margin-top:5px"></i></span></a>
                 @if(Auth::guard('teacher')->check())
-                <a href="#" id="put">Put Marks<span><i class="far fa-check-circle float-right"  style="margin-top:5px"></i></span></a>
-                <a href="#" id="check">Status<span><i class="fas fa-search float-right"  style="margin-top:5px"></i></span></a>
+                <a href="/teacher/putmarks" id="put">Put Marks<span><i class="far fa-check-circle float-right"  style="margin-top:5px"></i></span></a>
+                <a href="/teacher/checkstatus" id="check">Status<span><i class="fas fa-search float-right"  style="margin-top:5px"></i></span></a>
                 @endif
                 
         </div>

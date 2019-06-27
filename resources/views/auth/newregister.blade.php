@@ -1,9 +1,10 @@
 
 <style>
         html,body{
-            /* background-image: url("http://ves.ac.in/vesit/wp-content/uploads/sites/3/2015/11/IMG_93121-optimized.jpg");
+            background-image: url("http://ves.ac.in/vesit/wp-content/uploads/sites/3/2015/11/IMG_93121-optimized.jpg");
             background-repeat: no-repeat;
-            background-size: cover;  */
+            background-size: cover; 
+            height: 100%;
             font-family: 'Numans', sans-serif;
             }
             
@@ -13,7 +14,7 @@
             }
             
             .card{
-            height: 1000px;
+            height: 580px;
             margin-top: 50px;
             margin-bottom: auto;
             width: 470px;
@@ -96,19 +97,25 @@
 <div class="container">
     <div class="d-flex justify-content-center h-100">
         <div class="card">
-            <h3 class="card-title mt-3 text-center" style="color: white;margin-bottom:0px">Student's Registration</h3> 
-            
-           
+            <h3 class="card-title mt-3 text-center" style="color: white">Student's Registration</h3>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#Register" role="tab" aria-controls="home" aria-selected="true">Personal Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" id="Parent-tab" data-toggle="tab" href="#Parent" role="tab" aria-controls="Parent" aria-selected="false">Parent's Information</a>
+                </li>
+            </ul>  
         <div class="card-body">
-                <hr style="border:1px solid yellow;padding:0px;margin-top:0px">
-                <h5 class="float-left" style="color: white;margin-bottom:0px">Personal Information</h5>
-                        <form method="POST" action = "{{ route('register') }}">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane  active" id="Register" role="tabpanel" aria-labelledby="home-tab">
+                    <form method="POST" action = "#Parent" >
                      @csrf
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                       <input id="name" name="name" class="form-control" placeholder="Full Name" type="text" required> 
+                       <input id="name" name="name" class="form-control" placeholder="Full name" type="text" required> 
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -119,7 +126,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
-                        <input id="email" name="email" class="form-control" placeholder="Email Address" type="email" required>
+                        <input id="email" name="email" class="form-control" placeholder="Email address" type="email" required>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -132,13 +139,13 @@
                         </div>
                     
                         <input type="text" value="     +91" style="max-width: 70px;" disabled>
-                        <input id="phone_no" name="phone_no" class="form-control" placeholder="Contact Number" type="text" required>
+                        <input id="phone_no" name="phone_no" class="form-control" placeholder="Phone number" type="text" required>
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input id="password" class="form-control" placeholder="Create Password" type="password" name="password" required>
+                        <input id="password" class="form-control" placeholder="Create password" type="password" name="password" required>
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -149,13 +156,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input id="password-confirm" class="form-control" placeholder="Confirm password" name="password_confirmation" type="password" required>
+                        <input id="password-confirm" class="form-control" placeholder="Repeat password" name="password_confirmation" type="password" required>
                     </div> <!-- form-group// --> 
                     <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fas fa-pen"></i> </span>
                             </div>
-                    <input id="roll_no" type="number" class="form-control" placeholder="Roll No" name="roll_no" min=0 max=100 required>
+                    <input id="roll_no" type="number" class="form-control" placeholder="Roll no" name="roll_no" min=0 max=100 required>
                     </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -173,75 +180,49 @@
                                     <option value="32">D17C</option>
                                 </select>   
                         </div>
-                    </div> <!-- form-group end.// --> 
-                    <hr style="border:1px solid yellow;padding:0px;margin-top:0px">
-                    <h5 class="float-left" style="color: white;margin-bottom:0px">Parent/Guardian Information</h5><p>&nbsp;</p>
-                    <h6 class="float-left" style="color:white">Parent 1</h6>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                            </div>
-                           <input id="name" name="parentname1" class="form-control" placeholder="Full Name" type="text" required> 
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div> 
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                            </div>
-                        
-                            <input type="text" value="     +91" style="max-width: 70px;" disabled>
-                            <input id="phone_no" name="parentphone_no1" class="form-control" placeholder="Contact Number" type="text" required>
-                    </div>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                            </div>
-                            <input id="email" name="parentemail1" class="form-control" placeholder="Email Address" type="email" required>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div>
-                    <h6 class="float-left" style="color:white">Parent 2 (optional)</h6>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                            </div>
-                           <input id="name" name="parentname2" class="form-control" placeholder="Full Name" type="text" required> 
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div> 
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                            </div>
-                        
-                            <input type="text" value="     +91" style="max-width: 70px;" disabled>
-                            <input id="phone_no" name="parentphone_no2" class="form-control" placeholder="Contact Number" type="text" required>
-                    </div>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                            </div>
-                            <input id="email" name="parentemail2" class="form-control" placeholder="Email Address" type="email" required>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div>
+                    </div> <!-- form-group end.// -->                                     
                     <div class="form-group">
-                        <button type="submit" class="btn register_btn ">Create Account</button>
+                        <button type="submit" class="btn register_btn "> Next  </button>
                     </div> <!-- form-group// -->      
                     <p class="text-center">Have an account? <a href="/login">Log In</a> </p>                                                                 
+                    </form>
+                </div>
+                <div class="tab-pane " role="tabpanel" aria-labelledby="Parent-tab" id="Parent">
+                    <form method="POST" action = "{{ route('register') }}">
+                        <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                 </div>
+                                <input id="name" name="name" class="form-control" placeholder="Full name" type="text" required> 
+                            
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                        </div>
+                        <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                                </div>
+                                       
+                                <input type="text" value="     +91" style="max-width: 70px;" disabled>
+                                <input id="phone_no" name="phone_no" class="form-control" placeholder="Phone number" type="text" required>
+                        </div>
+                        <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                 </div>
+                                <input id="email" name="email" class="form-control" placeholder="Email address" type="email" required>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                        </div>
+                        <div class="form-group">
+                                <button type="submit" class="btn register_btn ">Create Account  </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -249,7 +230,12 @@
             </div>
         </div>
     </div> 
- 
+    <script>
+            $('#myTab a').on('click', function (e) {
+              e.preventDefault()
+              $(this).tab('show')
+            })
+            </script>
     @endsection
 {{-- @if ($errors->any())    
     <ul>

@@ -17,6 +17,7 @@
             height: 500px;
             margin-top: 50px;
             margin-bottom: auto;
+            text-align: center;
             width: 400px;
             background-color:rgba(0,0,0,0.7) !important;
             }
@@ -92,7 +93,7 @@
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
-                    <h3>Welcome</h3>
+                    <h3>Welcome Student</h3>
                     <h4 style="color: white">Sign in to Continue</h4>
                      <div class="d-flex justify-content-center social_icon">
                         {{-- <span><i class="fab fa-facebook-square"></i></span>

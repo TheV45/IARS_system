@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col-lg-12">
             
-            <h1 style="color:blue"><i class="fas fa-tachometer-alt" style="color: blue;"></i> <strong> Your Dashboard</strong></h1>
+            <h1 style="color:blue"><i class="fas fa-tachometer-alt" style="color: blue;"></i> <strong>Student's Dashboard</strong></h1>
             
             <hr  style="border: solid #FFC312">
         </div>

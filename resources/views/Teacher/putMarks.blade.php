@@ -12,7 +12,7 @@
         else
         {
             document.getElementById(num).value = "";
-            document.getElementById(num).required = true;
+            document.getElementById(num).required = true; 
             document.getElementById(num).style.display = 'inline';
         }
     }

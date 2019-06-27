@@ -84,7 +84,8 @@ class TeachersController extends Controller
         $subject = Subject::where('id',$subject_no)->first()['subject'];
         $division = Division::where('id',session()->get('division_no'.$user->id,'Error'))->first();
         $request->session()->forget(['division_no'.$user->id, 'subject_no'.$user->id,'test_no'.$user->id]);
-        return $this->send($subject,$division);
+        $request->session()->flash('success', 'Marks Updated and Students Notified Successfully');
+        return redirect('teacher\putmarks');
     }
     /**
      * Display the specified resource.
