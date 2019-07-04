@@ -94,7 +94,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                    <button type ="submit" class ="btn sub_btn " ><i class="fas fa-paper-plane"></i>Submit</button>
+                    <button type ="submit" class ="btn sub_btn " ><i class="fas fa-backward" style="margin-right:8px"></i>Back</button>
                     </form>
                     
                 </div>

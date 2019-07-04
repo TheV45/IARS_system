@@ -108,9 +108,9 @@
                           <a class="nav-link"  href="#parent" role="tab" aria-controls="parent" aria-selected="false">Parent Information</a>
                         </li>
                 </ul>
-                <hr style="border:1px solid yellow;padding:0px;margin-top:0px">
-                <h5 class="float-left" style="color: white;margin-bottom:0px">Personal Information</h5>
-                        <form method="POST" action = "{{ route('register') }}">
+                <div class="tab-content mt-3">
+                <div class="tab-pane active" id="register" role="tabpanel">
+                <form method="POST" action = "{{ route('register') }}">
                      @csrf
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -182,75 +182,94 @@
                                 </select>   
                         </div>
                     </div> <!-- form-group end.// --> 
-                    <hr style="border:1px solid yellow;padding:0px;margin-top:0px">
-                    <h5 class="float-left" style="color: white;margin-bottom:0px">Parent/Guardian Information</h5><p>&nbsp;</p>
-                    <h6 class="float-left" style="color:white">Parent 1</h6>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                            </div>
-                           <input id="name" name="parentname1" class="form-control" placeholder="Full Name" type="text" required> 
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div> 
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                            </div>
-                        
-                            <input type="text" value="     +91" style="max-width: 70px;" disabled>
-                            <input id="phone_no" name="parentphone_no1" class="form-control" placeholder="Contact Number" type="text" required>
-                    </div>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                            </div>
-                            <input id="email" name="parentemail1" class="form-control" placeholder="Email Address" type="email" required>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div>
-                    <h6 class="float-left" style="color:white">Parent 2 (optional)</h6>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                            </div>
-                           <input id="name" name="parentname2" class="form-control" placeholder="Full Name" type="text" required> 
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div> 
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                            </div>
-                        
-                            <input type="text" value="     +91" style="max-width: 70px;" disabled>
-                            <input id="phone_no" name="parentphone_no2" class="form-control" placeholder="Contact Number" type="text" required>
-                    </div>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                            </div>
-                            <input id="email" name="parentemail2" class="form-control" placeholder="Email Address" type="email" required>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div>
+                   
+                    
+                    
                     <div class="form-group">
                         <button type="submit" class="btn register_btn ">Create Account</button>
                     </div> <!-- form-group// -->      
                     <p class="text-center">Have an account? <a href="/login">Log In</a> </p>                                                                 
                     </form>
+                </div>
+               
+                <div class="tab-pane" id="parent" role="tabpanel" aria-labelledby="parent-tab">
+                        <form method="POST" action = "{{ route('register') }}">
+                                @csrf 
+                <h6 class="float-left" style="color:white">Parent 1</h6>
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                       <input id="name" name="parentname1" class="form-control" placeholder="Full Name" type="text" required> 
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div> 
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                        </div>
+                    
+                        <input type="text" value="     +91" style="max-width: 70px;" disabled>
+                        <input id="phone_no" name="parentphone_no1" class="form-control" placeholder="Contact Number" type="text" required>
+                </div>
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input id="email" name="parentemail1" class="form-control" placeholder="Email Address" type="email" required>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div>
+                <h6 class="float-left" style="color:white">Parent 2 (optional)</h6>
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                       <input id="name" name="parentname2" class="form-control" placeholder="Full Name" type="text" required> 
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div> 
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                        </div>
+                    
+                        <input type="text" value="     +91" style="max-width: 70px;" disabled>
+                        <input id="phone_no" name="parentphone_no2" class="form-control" placeholder="Contact Number" type="text" required>
+                </div>
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input id="email" name="parentemail2" class="form-control" placeholder="Email Address" type="email" required>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div>
+                        </form>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>

@@ -184,7 +184,7 @@
         <div class="form-group">
             <button type="submit" class="btn register_btn"> Create Account  </button>
         </div> <!-- form-group// -->      
-        <p class="text-center">Have an account? <a href="/login">Log In</a> </p>                                                                 
+        <p class="text-center">Have an account? <a href="/teacher/login">Log In</a> </p>                                                                 
     </form>
         </div>
             </div>

@@ -92,7 +92,7 @@
                                       <div class="form-group row">
                                             <label for="roll_no" class="col-md-4 col-form-label text-md-right">{{ __('Roll No') }}</label> 
                                         <div class="col-8">
-                                                <input id="roll_no" type="number" class="form-control" name="roll_no" value="{{$profile->roll_no }}" style="width:60px" required>
+                                                <input id="roll_no" type="number" class="form-control" name="roll_no" value="{{$profile->roll_no }}" style="width:60px" disabled>
                                         </div>
                                       </div>
                                       <div class="form-group row">

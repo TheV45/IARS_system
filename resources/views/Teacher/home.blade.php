@@ -53,7 +53,7 @@
                                    <hr style="border:1px solid #FFC312"> 
                                 </div>
                             </div>
-                    <form method="POST" action = "{{action('TeachersController@create')}}" >
+                    <form method="POST" action = "{{action('TeachersController@createSessionForTeacher')}}" >
                     @csrf
                     <div class="form-group row">
                         <label class="col-md-4 col-form-label text-md-right">Test No:</label>

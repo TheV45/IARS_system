@@ -16,7 +16,8 @@ class DivisionTeacher extends Migration
             $table->integer('division_id');
             $table->integer('subject_id')->nullable();
             $table->integer('teacher_id');
-            $table->timestamps();
+            $table->dateTime('Expiry_1');
+            $table->dateTime('Expiry_2');
         });
     }
     /**

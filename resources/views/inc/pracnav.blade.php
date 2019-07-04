@@ -3,11 +3,11 @@
             
         <div class="row">
                 <div class="col-sm-1">
-                    <img src="https://ves.ac.in/vesit/wp-content/uploads/sites/3/2018/07/Logo.png" alt="Institute of Technology Logo"  data-scale="1"  /> 
+                    <img src="https://ves.ac.in/vesit/wp-content/uploads/sites/3/2018/07/Logo.png" width="42" height="72" alt="Institute of Technology Logo"  data-scale="1"  /> 
                 </div>
                 <div class="col-md-11">
                     <a href="https://ves.ac.in/vesit/"  title="Institute of Technology">
-                        <h3 style="color: blue;">VIVEKANAND EDUCATION SOCIETY'S<br><br><i>Institute of Technology</i></h3>
+                        <h3 style="color: blue;margin-left:5px">VIVEKANAND EDUCATION SOCIETY'S<br><i>Institute of Technology</i></h3>
                     </a>
                 </div>
             </div>

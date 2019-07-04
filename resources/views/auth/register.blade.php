@@ -13,7 +13,7 @@
             }
             
             .card{
-            height: 1000px;
+            height: 600px;
             margin-top: 50px;
             margin-bottom: auto;
             width: 470px;
@@ -71,10 +71,29 @@
             color: black;
             background-color: #FFC312;
             width: 150px;
-            margin-left: 32%;
+            margin-left:10px ;
             }
-            
+            .next_btn{
+            color: black;
+            background-color: #FFC312;
+            width: 100px;
+            margin-left: 37%;
+            }
+            .previous_btn{
+            color: black;
+            background-color: #FFC312;
+            width: 100px;
+            margin-left: 20%;
+            }
             .register_btn:hover{
+            color: black;
+            background-color: white;
+            }
+            .next_btn:hover{
+            color: black;
+            background-color: white;
+            }
+            .previous_btn:hover{
             color: black;
             background-color: white;
             }
@@ -90,6 +109,15 @@
              margin-right: 15px;
              /* background-color: #FFC312; */
             }
+            /* .nav-item {
+                background-color: #FFC312;
+            } */
+           .card-header-tabs .nav-item .nav-link:active{
+            font:black;
+           }
+           .card-header-tabs .nav-item .nav-link{
+           color: #FFC312;
+           }
         </style>
 @extends('layouts.app')
 @section('content')
@@ -100,10 +128,19 @@
             
            
         <div class="card-body">
-                <hr style="border:1px solid yellow;padding:0px;margin-top:0px">
-                <h5 class="float-left" style="color: white;margin-bottom:0px">Personal Information</h5>
-                        <form method="POST" action = "{{ route('register') }}">
-                     @csrf
+                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist" style="margin-bottom:10px">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#register" data-toggle="tab"  aria-controls="register" aria-selected="true">Personal Information</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link"  href="#parent" data-toggle="tab" aria-controls="parent"  aria-selected="false">Parent Information</a>
+                        </li>
+                </ul>
+                <form method="POST" action = "{{ route('register') }}">
+                        @csrf 
+                <div class="tab-content mt-3">
+                <div class="tab-pane active" id="register" role="tabpanel">
+                
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -174,82 +211,108 @@
                                 </select>   
                         </div>
                     </div> <!-- form-group end.// --> 
-                    <hr style="border:1px solid yellow;padding:0px;margin-top:0px">
-                    <h5 class="float-left" style="color: white;margin-bottom:0px">Parent/Guardian Information</h5><p>&nbsp;</p>
-                    <h6 class="float-left" style="color:white">Parent 1</h6>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                            </div>
-                           <input id="name" name="parentname1" class="form-control" placeholder="Full Name" type="text" required> 
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div> 
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                            </div>
-                        
-                            <input type="text" value="     +91" style="max-width: 70px;" disabled>
-                            <input id="phone_no" name="parentphone_no1" class="form-control" placeholder="Contact Number" type="text" required>
-                    </div>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                            </div>
-                            <input id="email" name="parentemail1" class="form-control" placeholder="Email Address" type="email" required>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div>
-                    <h6 class="float-left" style="color:white">Parent 2 (optional)</h6>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                            </div>
-                           <input id="name" name="parentname2" class="form-control" placeholder="Full Name" type="text" required> 
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div> 
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                            </div>
-                        
-                            <input type="text" value="     +91" style="max-width: 70px;" disabled>
-                            <input id="phone_no" name="parentphone_no2" class="form-control" placeholder="Contact Number" type="text" required>
-                    </div>
-                    <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                            </div>
-                            <input id="email" name="parentemail2" class="form-control" placeholder="Email Address" type="email" required>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                    </div>
+                   
                     <div class="form-group">
-                        <button type="submit" class="btn register_btn ">Create Account</button>
+                            <a class="btn next_btn btnNext" >Next <i class="fas fa-forward" style="margin-left:5px"></i></a>
                     </div> <!-- form-group// -->      
+                    
                     <p class="text-center">Have an account? <a href="/login">Log In</a> </p>                                                                 
-                    </form>
+                </div>
+            
+           
+               
+                <div class="tab-pane" id="parent" role="tabpanel" aria-labelledby="parent-tab">
+             
+                <h6 class="float-left" style="color:white">Parent 1</h6>
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                       <input id="name" name="parentname1" class="form-control" placeholder="Full Name" type="text" required> 
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div> 
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                        </div>
+                    
+                        <input type="text" value="     +91" style="max-width: 70px;" disabled>
+                        <input id="phone_no" name="parentphone_no1" class="form-control" placeholder="Contact Number" type="text" required>
+                </div>
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input id="email" name="parentemail1" class="form-control" placeholder="Email Address" type="email" required>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div>
+                <h6 class="float-left" style="color:white">Parent 2 (optional)</h6>
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                       <input id="name" name="parentname2" class="form-control" placeholder="Full Name" type="text" > 
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div> 
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                        </div>
+                    
+                        <input type="text" value="     +91" style="max-width: 70px;" disabled>
+                        <input id="phone_no" name="parentphone_no2" class="form-control" placeholder="Contact Number" type="text" >
+                </div>
+                <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input id="email" name="parentemail2" class="form-control" placeholder="Email Address" type="email" >
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div>
+                <div class="form-group">
+                        <a class="btn previous_btn btnPrevious float-left" ><i class="fas fa-backward"></i>Previous</a>
+                        
+                        <button type="submit" class="btn register_btn ">Create Account</button>
+                        
+                </div>
+                </form>
+                </div>
                 </div>
             </div>
         </div>
             </div>
         </div>
     </div> 
- 
+    <script>
+ $('.btnNext').click(function(){
+  $('.card-header-tabs > .nav-item').next('li').find('a').trigger('click');
+});
+$('.btnPrevious').click(function(){
+  $('.card-header-tabs > .nav-item').prev('li').find('a').trigger('click');
+});
+$('#myTab a').on('click', function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+            
+          })
+    </script>
+    
     @endsection
 {{-- @if ($errors->any())    
     <ul>

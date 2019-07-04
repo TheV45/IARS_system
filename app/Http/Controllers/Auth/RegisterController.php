@@ -103,15 +103,15 @@ class RegisterController extends Controller
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users','regex:/(.*)ves\.ac\.in$/',],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
-                'roll_no' => ['required', 'integer' ],
+                'roll_no' => ['required', 'integer','min:0' ],
                 'phone_no' => ['required', 'string'],
                 'division' => ['required', 'string','unique:users,division,NULL,id,roll_no,'.$data['roll_no'],],
                 'parentname1' => ['required', 'string', 'max:255'],
                 'parentemail1' => ['required', 'string', 'email', 'max:255', ],
                 'parentphone_no1' => ['required', 'string'],
-                'parentname2' => [ 'string', 'max:255'],
-                'parentemail2' => [ 'string', 'email', 'max:255', ],
-                'parentphone_no2' => ['string',],
+                'parentname2' => [ 'nullable','string', 'max:255'],
+                'parentemail2' => [ 'nullable','string', 'email', 'max:255', ],
+                'parentphone_no2' => ['nullable','string',],
         ]);
     }
     protected function validateTeacher(array $data)

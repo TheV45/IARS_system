@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<style>
+    #sticky-footer {
+  flex-shrink: none;
+}
+</style>
 {{-- <style>
         body{
             background-image: url("http://ves.ac.in/vesit/wp-content/uploads/sites/3/2015/11/IMG_93121-optimized.jpg");
@@ -18,6 +23,10 @@
     <title>{{ config('app.name', 'IARS') }}</title>
 
     <!-- Scripts -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
     <script><reference path="../typings/globals/jquery/index.d.ts" /></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/ee8f29eb14.js"></script>
@@ -42,5 +51,6 @@
         <div class="container">
             @yield('content')
         </div>
+        {{-- @include('inc.footer') --}}
 </body>
 </html>
