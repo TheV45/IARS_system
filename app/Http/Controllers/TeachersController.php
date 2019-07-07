@@ -215,12 +215,10 @@ class TeachersController extends Controller
         $students = InternalTest::where('division_id',session()->get('division_no'.$teacher->id,'Error'))
                                     ->where('subject_id',session()->get('subject_no'.$teacher->id,'Error'))
                                     ->orderBy('roll_no')->get();
-        
         for($i=0;$i<count($students);$i++)
         {
-            $students[$i]['name'] = User::where('division',session()->get('division_no'.$teacher->id,'Error'))->where('roll_no',$students[$i]['roll_no'])->first()->value('name');
+            $students[$i]['name'] = User::where('division',session()->get('division_no'.$teacher->id,'Error'))->where('roll_no',$students[$i]['roll_no'])->first()['name'];
         }
-
         session()->forget(['division_no'.$teacher->id, 'subject_no'.$teacher->id,'test_no'.$teacher->id]);
         return view('Teacher.status')->with('students',$students)->with('test_no',$test_no);
     }

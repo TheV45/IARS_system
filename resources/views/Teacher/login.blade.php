@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 <style>
-        html,body{
+        /* html,body{
             background-image: url("http://ves.ac.in/vesit/wp-content/uploads/sites/3/2015/11/IMG_93121-optimized.jpg");
             background-repeat: no-repeat;
             background-size: cover; 
             height: 100%;
             font-family: 'Numans', sans-serif;
-            }
+            } */
             
             .container{
             height: 100%;

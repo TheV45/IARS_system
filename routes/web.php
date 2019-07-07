@@ -70,6 +70,7 @@ Route::group(['prefix' => 'home', 'middleware' => ['auth']], function ()
 );
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () 
 {
+    Route::get('','AdminsController@index');
     Route::get('applications','AdminsController@showApplications');
     Route::get('applications/{id}','AdminsController@Application');
     Route::post('applications/{id}','AdminsController@storeApplication');

@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 class AdminsController extends Controller
 {
     protected $guard = 'admin';
+    public function index()
+    {
+        return view('Admin.admindash');
+    }
     public function showApplications()
     {
        $applications =  Application::all();
